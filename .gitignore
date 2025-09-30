@@ -24,3 +24,8 @@ venv/
 .DS_Store
 Thumbs.db
 node_modules/
+.env
+.venv/
+venv/
+staticfiles/
+media/
