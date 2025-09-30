@@ -1,0 +1,25 @@
+# Python / Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.egg-info/
+db.sqlite3
+local_settings.py
+
+# Django collectstatic
+/static/
+media/
+staticfiles/
+
+# Entornos y variables
+.venv/
+venv/
+.env
+*.env
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
