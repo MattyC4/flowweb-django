@@ -1,0 +1,36 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% block content %}
+  {% if active == "index" %}
+    <h1 class="text-2xl font-bold">Resumen</h1>
+    <p class="mt-2 text-slate-600">Aquí irán los KPIs principales.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <div class="text-sm text-slate-500">Usuarios</div>
+        <div class="mt-2 text-3xl font-semibold">—</div>
+      </div>
+      <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <div class="text-sm text-slate-500">Medidores</div>
+        <div class="mt-2 text-3xl font-semibold">—</div>
+      </div>
+      <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <div class="text-sm text-slate-500">Boletas del mes</div>
+        <div class="mt-2 text-3xl font-semibold">—</div>
+      </div>
+    </div>
+  {% elif active == "usuarios" %}
+    <h1 class="text-2xl font-bold">Usuarios</h1>
+    <p class="mt-2 text-slate-600">Listado y gestión (placeholder).</p>
+  {% elif active == "medidores" %}
+    <h1 class="text-2xl font-bold">Medidores</h1>
+    <p class="mt-2 text-slate-600">Catálogo de medidores (placeholder).</p>
+  {% elif active == "consumos" %}
+    <h1 class="text-2xl font-bold">Consumos</h1>
+    <p class="mt-2 text-slate-600">Registro de consumos (placeholder).</p>
+  {% elif active == "boletas" %}
+    <h1 class="text-2xl font-bold">Boletas</h1>
+    <p class="mt-2 text-slate-600">Emisión y estado de pago (placeholder).</p>
+  {% elif active == "reportes" %}
+    <h1 class="text-2xl font-bold">Reportes</h1>
+    <p class="mt-2 text-slate-600">Consultas y exportaciones (placeholder).</p>
+  {% endif %}
+{% endblock %}

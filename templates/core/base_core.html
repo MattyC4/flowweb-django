@@ -1,0 +1,63 @@
+{% extends "_shared/base_shell.html" %}
+{% block title %}FlowWeb | Gestión APR{% endblock %}
+{% block body %}
+{% load static %}
+
+  <!-- Header público (con login/registro a la derecha) -->
+  <header class="border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="{% url 'core:landing' %}" class="flex items-center gap-3">
+          <img src="{% static 'img\FlowwebLogo.png' %}" alt="FlowWeb" class="h-8 w-8 rounded-md">
+          <span class="font-semibold">FlowWeb</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#que-es" class="hover:text-primary">¿Qué es?</a>
+          <a href="#valor" class="hover:text-primary">Valor</a>
+          <a href="#como-funciona" class="hover:text-primary">Cómo funciona</a>
+          <a href="#faq" class="hover:text-primary">FAQ</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-2">
+          <a href="{% url 'users:login' %}" class="px-4 py-2 text-sm rounded-lg border border-slate-300 hover:bg-slate-50">Iniciar sesión</a>
+          <a href="{% url 'users:signup' %}" class="px-4 py-2 text-sm font-semibold rounded-lg bg-primary text-white hover:bg-primary-dark">Registrarse</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden p-2 border border-slate-300 rounded-md" aria-label="Menú">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#que-es" class="block py-2">¿Qué es?</a>
+        <a href="#valor" class="block py-2">Valor</a>
+        <a href="#como-funciona" class="block py-2">Cómo funciona</a>
+        <a href="#faq" class="block py-2">FAQ</a>
+        <div class="pt-2 flex gap-2">
+          <a href="{% url 'users:login' %}" class="flex-1 px-4 py-2 text-sm rounded-lg border border-slate-300 text-center">Iniciar sesión</a>
+          <a href="{% url 'users:signup' %}" class="flex-1 px-4 py-2 text-sm font-semibold rounded-lg bg-primary text-white text-center">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido de cada página pública -->
+  <main class="min-h-[60vh]">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer simple -->
+  <footer class="mt-16 border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600">
+      © {{ now|date:"Y" }} FlowWeb.
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', ()=> mobileNav.classList.toggle('hidden'));
+  </script>
+{% endblock %}
